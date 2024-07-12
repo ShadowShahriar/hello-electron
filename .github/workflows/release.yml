@@ -7,6 +7,8 @@ on:
 jobs:
     publish_on_win:
         runs-on: windows-latest
+        permissions:
+            contents: write
         steps:
             - name: Checkout code
               uses: actions/checkout@v4.1.7
