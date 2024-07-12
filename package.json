@@ -42,7 +42,7 @@
 		"productName": "Hello Electron",
 		"artifactName": "${name}-v${version}.${ext}",
 		"executableName": "Hello Electron",
-		"compression": "store",
+		"compression": "maximum",
 		"win": {
 			"signAndEditExecutable": false,
 			"verifyUpdateCodeSignature": false,
