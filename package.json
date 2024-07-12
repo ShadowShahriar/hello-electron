@@ -1,6 +1,6 @@
 {
 	"name": "hello-electron",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"description": "First Electron Project",
 	"main": "main.js",
 	"type": "module",
