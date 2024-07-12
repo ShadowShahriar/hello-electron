@@ -25,5 +25,5 @@ jobs:
               with:
                   repo_token: ${{ secrets.GITHUB_TOKEN }}
                   tag: ${{ github.ref }}
-                  file: ./out/**/*
+                  file: ./out/make/*
                   file_glob: true
