@@ -20,12 +20,5 @@ jobs:
               run: npm ci
             - name: Display the release tag
               run: echo ${{ github.event.release.tag_name }}
-            - name: make
-              run: npm run make
-            - name: upload
-              uses: svenstaro/upload-release-action@v2
-              with:
-                  repo_token: ${{ secrets.GITHUB_TOKEN }}
-                  tag: ${{ github.ref }}
-                  file: ./out/make/*
-                  file_glob: true
+            - name: publish
+              run: npm run publish

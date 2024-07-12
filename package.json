@@ -1,16 +1,13 @@
 {
 	"name": "hello-electron",
-	"productName": "Hello Electron",
-	"version": "1.3.0",
+	"version": "1.4.0",
 	"description": "First Electron Project",
 	"main": "main.js",
 	"type": "module",
 	"scripts": {
 		"test": "chcp 65001 && electron .",
-		"start": "electron-forge start",
-		"package": "electron-forge package",
-		"make": "electron-forge make",
-		"publish": "electron-forge publish"
+		"build": "electron-builder",
+		"publish": "electron-builder --publish always"
 	},
 	"keywords": [
 		"node",
@@ -31,55 +28,55 @@
 	"homepage": "https://github.com/ShadowShahriar/hello-electron#readme",
 	"license": "MIT",
 	"devDependencies": {
-		"@electron-forge/cli": "^7.4.0",
-		"@electron-forge/maker-squirrel": "^7.4.0",
-		"@electron-forge/maker-zip": "^7.4.0",
-		"@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
-		"electron": "^31.2.0"
+		"electron": "^31.2.0",
+		"electron-builder": "^24.13.3",
+		"electron-builder-squirrel-windows": "^24.13.3"
 	},
 	"dependencies": {
 		"@fontsource-variable/quicksand": "^5.0.18",
 		"electron-squirrel-startup": "^1.0.1",
 		"update-electron-app": "^3.0.0"
 	},
-	"config": {
-		"forge": {
-			"packagerConfig": {
-				"icon": "src/assets/app",
-				"ignore": [
-					".old",
-					"out",
-					"coverage"
-				],
-				"asar": {
-					"unpack": [
-						"**/node_modules/@fontsource/**/*",
-						"**/node_modules/@fontsource-variable/**/*"
-					]
-				}
-			},
-			"plugins": [
+	"build": {
+		"appId": "com.hello-electron.app",
+		"productName": "Hello Electron",
+		"artifactName": "${name}-v${version}.${ext}",
+		"executableName": "Hello Electron",
+		"compression": "store",
+		"win": {
+			"signAndEditExecutable": false,
+			"verifyUpdateCodeSignature": false,
+			"forceCodeSigning": false,
+			"target": [
 				{
-					"name": "@electron-forge/plugin-auto-unpack-natives",
-					"config": {}
-				}
-			],
-			"makers": [
-				{
-					"name": "@electron-forge/maker-zip",
-					"platforms": [
-						"win32"
+					"target": "nsis",
+					"arch": [
+						"x64"
 					]
 				},
 				{
-					"name": "@electron-forge/maker-squirrel",
-					"config": {
-						"authors": "S. Shahriar",
-						"description": "First App Installer",
-						"setupIcon": "src/assets/app.ico"
-					}
+					"target": "zip"
 				}
 			]
-		}
+		},
+		"nsis": {
+			"unicode": true,
+			"oneClick": false,
+			"perMachine": true,
+			"allowElevation": true,
+			"allowToChangeInstallationDirectory": true,
+			"removeDefaultUninstallWelcomePage": true,
+			"deleteAppDataOnUninstall": true,
+			"shortcutName": "Hello Electron",
+			"runAfterFinish": true,
+			"uninstallDisplayName": "${productName} v${version}",
+			"license": "build/license.html"
+		},
+		"copyright": "Copyright © 2024 ${author}",
+		"asar": true,
+		"asarUnpack": [
+			"**/node_modules/@fontsource/**",
+			"**/node_modules/@fontsource-variable/**"
+		]
 	}
 }
