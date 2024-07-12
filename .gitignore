@@ -2,3 +2,5 @@
 /node_modules
 dist/
 caches/
+.env
+package-lock.json
