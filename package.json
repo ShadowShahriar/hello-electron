@@ -43,6 +43,10 @@
 		"artifactName": "${name}-v${version}.${ext}",
 		"executableName": "Hello Electron",
 		"compression": "maximum",
+		"directories": {
+			"buildResources": "build",
+			"output": "dist"
+		},
 		"win": {
 			"signAndEditExecutable": false,
 			"verifyUpdateCodeSignature": false,
