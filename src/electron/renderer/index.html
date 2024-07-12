@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Security-Policy" content="script-src 'self'" />
+		<meta name="theme-color" content="#000" />
+
+		<title>Hello Electron</title>
+		<link rel="stylesheet" href="" id="fontcss" />
+		<script src="js/fonts.js"></script>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/window.css" />
+		<script src="js/chrome.js" defer></script>
+	</head>
+	<body>
+		<div id="titlebar" class="drag">
+			<span id="title">Hello Electron</span>
+			<div id="titlebar-buttons" class="no-drag">
+				<button class="ttl-btn" data-action="minimize" title="Minimize">
+					<img src="images/win-min.svg" />
+				</button>
+				<button class="ttl-btn" data-action="toggle" title="Jump to tray">
+					<img src="images/win-tray.svg" />
+				</button>
+				<button class="ttl-btn" data-action="close" title="Quit"><img src="images/win-close.svg" /></button>
+			</div>
+		</div>
+		<main>
+			<h1>Seems cool, huh?</h1>
+			<p>So, what would you build next? 😄</p>
+		</main>
+	</body>
+</html>
