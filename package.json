@@ -42,7 +42,6 @@
 		"productName": "Hello Electron",
 		"artifactName": "${name}-v${version}.${ext}",
 		"executableName": "Hello Electron",
-		"compression": "maximum",
 		"directories": {
 			"buildResources": "build",
 			"output": "dist"
@@ -57,6 +56,9 @@
 					"arch": [
 						"x64"
 					]
+				},
+				{
+					"target": "zip"
 				}
 			],
 			"publish": [
