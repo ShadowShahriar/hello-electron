@@ -42,7 +42,8 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/quicksand": "^5.0.18",
-		"electron-squirrel-startup": "^1.0.1"
+		"electron-squirrel-startup": "^1.0.1",
+		"update-electron-app": "^3.0.0"
 	},
 	"config": {
 		"forge": "./forge.config.cjs"

@@ -6,6 +6,9 @@ import { isMac, announceQuit, nothing, rootdir } from './src/electron/utils.js'
 import squirrel from 'electron-squirrel-startup'
 if (squirrel) app.quit()
 
+import { updateElectronApp } from 'update-electron-app'
+updateElectronApp()
+
 let appTray
 let appWindow
 let appActive

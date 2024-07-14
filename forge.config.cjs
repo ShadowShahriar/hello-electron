@@ -4,11 +4,11 @@ const { readFileSync } = require('fs')
 const usrname = 'ShadowShahriar'
 const executableName = 'app'
 const assetsFolder = 'build'
-const loadingGif = resolve(__dirname, assetsFolder, 'loading.gif')
+const loadingGif = resolve(__dirname, assetsFolder, 'placeholder.gif')
 const icons = {
 	general: resolve(__dirname, assetsFolder, 'icon'),
 	debian: resolve(__dirname, assetsFolder, 'icon.png'),
-	winsetup: resolve(__dirname, assetsFolder, 'installerIcon.ico')
+	winsetup: resolve(__dirname, assetsFolder, 'installer.ico')
 }
 
 const unpack = ['**/node_modules/@fontsource/**', '**/node_modules/@fontsource-variable/**']
