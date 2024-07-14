@@ -31,7 +31,7 @@ module.exports = {
 				description: pjson.description,
 				setupIcon: icons.winsetup,
 				setupExe: `${pjson.name}-v${pjson.version}-${process.platform}-${process.arch}-setup.exe`,
-				iconUrl: `https://github.com/${usrname}s/${pjson.name}/raw/main/${assetsFolder}/icon.ico`,
+				iconUrl: `https://github.com/${usrname}/${pjson.name}/raw/main/${assetsFolder}/icon.ico`,
 				copyright: `Copyright (c) ${new Date().getFullYear()} ${pjson.author.name}`,
 				authors: pjson.author.name,
 				owners: pjson.author.name
