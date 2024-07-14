@@ -1,8 +1,8 @@
-name: Build and Release
+name: Release
 on:
-    push:
-        tags:
-            - 'v*'
+    release:
+        types:
+            - created
 
 jobs:
     release:
@@ -16,6 +16,6 @@ jobs:
             - name: NPM Install
               run: npm install
             - name: Build and Release
-              run: npm run publish
               env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: npm run publish

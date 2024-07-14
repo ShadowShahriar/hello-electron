@@ -1,6 +1,7 @@
 .old
 /node_modules
 dist/
+out/
 caches/
 .env
 package-lock.json
