@@ -19,7 +19,7 @@ export async function showAbout(app, appWindow) {
 
 	const modal = await dialog.showMessageBox(appWindow, {
 		icon,
-		title: 'About',
+		title: lang.title_about,
 		type: 'info',
 		message: appname,
 		detail: info,

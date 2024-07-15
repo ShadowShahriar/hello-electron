@@ -21,7 +21,8 @@ module.exports = {
 	packagerConfig: {
 		icon: icons.general,
 		executableName,
-		asar: { unpack }
+		asar: { unpack },
+		ignore: ['.vscode', '.old', '.temp']
 	},
 	makers: [
 		{

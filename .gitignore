@@ -1,7 +1,13 @@
-.old
+# old code and temp files
+.old/
+.temp/
+
+# node modules
 /node_modules
-dist/
-out/
-caches/
-.env
 package-lock.json
+
+# electron-forge
+out/
+
+# environment variables
+.env

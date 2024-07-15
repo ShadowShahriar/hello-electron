@@ -43,6 +43,7 @@
 	"dependencies": {
 		"@fontsource-variable/quicksand": "^5.0.18",
 		"electron-squirrel-startup": "^1.0.1",
+		"electron-store": "^10.0.0",
 		"update-electron-app": "^3.0.0"
 	},
 	"config": {

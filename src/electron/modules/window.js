@@ -1,6 +1,6 @@
 import lang from '../lang.js'
 import { paths, winconfig, logstate } from '../defaults.js'
-import { announce, rootdir, runfn } from '../utils.js'
+import { announce, rootdir, runfn, getcfg, setcfg } from '../utils.js'
 import { BrowserWindow, Menu } from 'electron'
 
 const fname = 'createWindow'
@@ -16,19 +16,25 @@ export function createWindow(callback) {
 
 	const Window = new BrowserWindow(winconfig(icon, appname, preload))
 	Menu.setApplicationMenu(null)
-	announce(service, logstate.ok, 'Disabled application menu')
+	announce(service, logstate.ok, lang.ant_nomenu)
 
 	Window.loadFile(ui)
 	Window.setMaximizable(false)
+
+	if (getcfg('window_on_top')) {
+		Window.setAlwaysOnTop(true)
+		announce(service, logstate.blue, lang.ant_ontop_start)
+	}
+
 	Window.on('hide', () => runfn(callback, fname, { active: false }))
 	Window.on('show', () => runfn(callback, fname, { active: true }))
-	Window.on('focus', () => announce(service, logstate.blue, 'Window focus'))
-	Window.on('blur', () => announce(service, logstate.orange, 'Window blur'))
-	Window.once('closed', () => announce(service, logstate.ok, 'Window closed'))
+	Window.on('focus', () => announce(service, logstate.blue, lang.ant_wfocus))
+	Window.on('blur', () => announce(service, logstate.orange, lang.ant_wblur))
+	Window.once('closed', () => announce(service, logstate.ok, lang.ant_wclose))
 	Window.once('ready-to-show', () => {
 		setTimeout(() => {
 			Window.show()
-			announce(service, logstate.ok, 'Window active')
+			announce(service, logstate.ok, lang.ant_wactive)
 		}, 200)
 	})
 
@@ -49,5 +55,11 @@ export function focusWindow(appWindow) {
 
 export function toggleOnTop(appWindow, state) {
 	appWindow.setAlwaysOnTop(state)
-	announce(service, state ? logstate.blue : logstate.orange, state ? 'Enable' : 'Disable', 'always on top')
+	setcfg('window_on_top', state)
+	announce(
+		service,
+		state ? logstate.blue : logstate.orange,
+		state ? lang.ant_enable : lang.ant_disable,
+		lang.ant_ontop
+	)
 }

@@ -1,7 +1,7 @@
 import lang from '../lang.js'
 import { Tray, Menu } from 'electron'
 import { paths, logstate } from '../defaults.js'
-import { rootdir, announce } from '../utils.js'
+import { rootdir, announce, getcfg } from '../utils.js'
 import { toggleWindow, focusWindow, toggleOnTop } from './window.js'
 import { showAbout } from './dialog.js'
 
@@ -20,7 +20,7 @@ export function createTrayIcon(app, win, appactive) {
 		{ label: '&Quit', click: _ => app.quit() }
 	])
 
-	contextMenu.items[1].checked = false
+	contextMenu.items[1].checked = !!getcfg('window_on_top')
 	appTray.setContextMenu(contextMenu)
 	appTray.on('click', () => focusWindow(win))
 	appTray.on('double-click', () => toggleWindow(win, appactive, false))
