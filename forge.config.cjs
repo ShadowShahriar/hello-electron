@@ -22,7 +22,7 @@ module.exports = {
 		icon: icons.general,
 		executableName,
 		asar: { unpack },
-		ignore: ['.vscode', '.old', '.temp']
+		ignore: ['.vscode/*', '.old/*', '.temp/*']
 	},
 	makers: [
 		{
