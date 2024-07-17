@@ -42,6 +42,7 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/quicksand": "^5.0.18",
+		"dotenv": "^16.4.5",
 		"electron-squirrel-startup": "^1.0.1",
 		"electron-store": "^10.0.0",
 		"update-electron-app": "^3.0.0"

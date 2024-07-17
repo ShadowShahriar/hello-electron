@@ -11,3 +11,6 @@ out/
 
 # environment variables
 .env
+
+# code signing certificates
+*.pfx

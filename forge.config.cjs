@@ -1,3 +1,5 @@
+const dotenv = require('dotenv')
+dotenv.config()
 const { resolve } = require('path')
 const { readFileSync } = require('fs')
 
@@ -35,7 +37,9 @@ module.exports = {
 				iconUrl: `https://github.com/${usrname}/${pjson.name}/raw/main/${assetsFolder}/icon.ico`,
 				copyright: `Copyright (c) ${new Date().getFullYear()} ${pjson.author.name}`,
 				authors: pjson.author.name,
-				owners: pjson.author.name
+				owners: pjson.author.name,
+				certificateFile: './cert.pfx',
+				certificatePassword: process.env.CERTIFICATE_PASSWORD
 			}
 		},
 		{ name: '@electron-forge/maker-zip', platforms: ['win32', 'darwin'] },
