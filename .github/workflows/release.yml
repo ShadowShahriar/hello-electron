@@ -17,5 +17,6 @@ jobs:
               run: npm install
             - name: Build and Release
               env:
+                  CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: npm run publish
